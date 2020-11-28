@@ -27,10 +27,10 @@ public class Acerca extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lProg = new javax.swing.JLabel();
+        lMarlie = new javax.swing.JLabel();
+        lGerald = new javax.swing.JLabel();
+        lIlse = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 248, 239));
         setClosable(true);
@@ -38,49 +38,47 @@ public class Acerca extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Acerca de ...");
 
-        jLabel1.setFont(new java.awt.Font("Lucida Calligraphy", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(58, 38, 29));
-        jLabel1.setText("Programadores");
+        lProg.setFont(new java.awt.Font("Lucida Calligraphy", 1, 18)); // NOI18N
+        lProg.setForeground(new java.awt.Color(58, 38, 29));
+        lProg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lProg.setText("Programadores");
 
-        jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(58, 38, 29));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Marlie Lucía Ramírez Altamirano");
+        lMarlie.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        lMarlie.setForeground(new java.awt.Color(58, 38, 29));
+        lMarlie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lMarlie.setText("Marlie Lucía Ramírez Altamirano");
 
-        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(58, 38, 29));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Gerald José Diaz Mairena");
+        lGerald.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        lGerald.setForeground(new java.awt.Color(58, 38, 29));
+        lGerald.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lGerald.setText("Gerald José Diaz Mairena");
 
-        jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(58, 38, 29));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Ilse Michelle Gomez Bermudez");
+        lIlse.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        lIlse.setForeground(new java.awt.Color(58, 38, 29));
+        lIlse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lIlse.setText("Ilse Michelle Gomez Bermudez");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lMarlie, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+            .addComponent(lGerald, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lIlse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lProg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lProg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(jLabel2)
+                .addComponent(lMarlie)
                 .addGap(30, 30, 30)
-                .addComponent(jLabel3)
+                .addComponent(lGerald)
                 .addGap(30, 30, 30)
-                .addComponent(jLabel4)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(lIlse)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,9 +86,9 @@ public class Acerca extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lGerald;
+    private javax.swing.JLabel lIlse;
+    private javax.swing.JLabel lMarlie;
+    private javax.swing.JLabel lProg;
     // End of variables declaration//GEN-END:variables
 }

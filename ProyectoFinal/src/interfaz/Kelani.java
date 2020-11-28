@@ -22,7 +22,7 @@ public class Kelani extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         dpPanel = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        mbKelani = new javax.swing.JMenuBar();
         mVenta = new javax.swing.JMenu();
         mInforme = new javax.swing.JMenu();
         mAcerca = new javax.swing.JMenu();
@@ -63,8 +63,8 @@ public class Kelani extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 248, 239));
-        jMenuBar1.setForeground(new java.awt.Color(255, 248, 239));
+        mbKelani.setBackground(new java.awt.Color(255, 248, 239));
+        mbKelani.setForeground(new java.awt.Color(255, 248, 239));
 
         mVenta.setBackground(new java.awt.Color(255, 248, 239));
         mVenta.setForeground(new java.awt.Color(58, 38, 29));
@@ -75,7 +75,7 @@ public class Kelani extends javax.swing.JFrame {
                 mVentaMouseClicked(evt);
             }
         });
-        jMenuBar1.add(mVenta);
+        mbKelani.add(mVenta);
 
         mInforme.setBackground(new java.awt.Color(255, 248, 239));
         mInforme.setForeground(new java.awt.Color(58, 38, 29));
@@ -86,7 +86,7 @@ public class Kelani extends javax.swing.JFrame {
                 mInformeMouseClicked(evt);
             }
         });
-        jMenuBar1.add(mInforme);
+        mbKelani.add(mInforme);
 
         mAcerca.setBackground(new java.awt.Color(255, 248, 239));
         mAcerca.setForeground(new java.awt.Color(58, 38, 29));
@@ -97,9 +97,9 @@ public class Kelani extends javax.swing.JFrame {
                 mAcercaMouseClicked(evt);
             }
         });
-        jMenuBar1.add(mAcerca);
+        mbKelani.add(mAcerca);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(mbKelani);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,9 +169,9 @@ public class Kelani extends javax.swing.JFrame {
     private javax.swing.JDesktopPane dpPanel;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu mAcerca;
     private javax.swing.JMenu mInforme;
     private javax.swing.JMenu mVenta;
+    private javax.swing.JMenuBar mbKelani;
     // End of variables declaration//GEN-END:variables
 }
