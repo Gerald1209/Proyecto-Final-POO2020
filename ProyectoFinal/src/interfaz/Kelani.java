@@ -48,7 +48,7 @@ public class Kelani extends javax.swing.JFrame {
         dpPanel.setName(""); // NOI18N
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marlon Ramirez\\Downloads\\WhatsApp Image 2020-11-24 at 6_opt.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/WhatsApp Image 2020-11-24 at 6_opt.jpg"))); // NOI18N
 
         dpPanel.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
