@@ -1,12 +1,15 @@
 package interfaz;
 
 import javax.swing.JFrame;
+import proyectofinal.Pasteleria;
 
 public class Kelani extends javax.swing.JFrame {
     
-    Venta venta = new Venta();
     Informe inform = new Informe();
+    Pasteleria past = new Pasteleria();
+    Venta venta = new Venta();
     Acerca info = new Acerca();
+    
 
     public Kelani() {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -122,7 +125,10 @@ public class Kelani extends javax.swing.JFrame {
 
     private void mInformeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mInformeMouseClicked
         this.dpPanel.add(this.inform);
-        this.inform.setVisible(true);
+        this.inform.setVisible(true);        
+        
+        this.past.obtenerFechas();
+        this.past.generarInformeVenta();
     }//GEN-LAST:event_mInformeMouseClicked
 
     private void mAcercaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mAcercaMouseClicked
@@ -130,9 +136,9 @@ public class Kelani extends javax.swing.JFrame {
         this.info.setVisible(true);
     }//GEN-LAST:event_mAcercaMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
