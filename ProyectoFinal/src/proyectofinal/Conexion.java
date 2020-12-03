@@ -33,7 +33,8 @@ public class Conexion {
     public void close(Connection conn){
         try{
            conn.close();
-        }catch(Exception ex){
+        }
+        catch(Exception ex){
             ex.printStackTrace();
         }
     }

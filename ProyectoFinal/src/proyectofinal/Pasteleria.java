@@ -27,6 +27,10 @@ public class Pasteleria extends Conexion{
     
     private String inicio;
     private String end;
+    
+    private Date primera;
+    private Date ultima;
+    
     final String mostrarCiudad = "Select * from Registro";
     
         /*
@@ -60,8 +64,8 @@ public class Pasteleria extends Conexion{
             
             try {
                 SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
-                Date primera = fechas.parse(inicio);
-                Date ultima = fechas.parse(end);
+                primera = fechas.parse(inicio);
+                ultima = fechas.parse(end);
             } 
             catch (ParseException ex) 
             {
