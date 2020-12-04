@@ -22,7 +22,7 @@ public class Pasteleria extends Conexion{
     Connection conn;
     
     public Informe inform;
-    public Producto m_Producto;
+    
     public Venta m_Venta;
     
     private String inicio;

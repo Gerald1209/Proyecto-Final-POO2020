@@ -14,7 +14,8 @@ public class Venta {
 	private Date fechaVenta;
 	private float montoFinal;
 	private int numeroPedido;
-	public Producto m_Producto;
+        private String nombre;
+	private float precio;
 
 	public Venta(){
 
