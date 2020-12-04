@@ -2,24 +2,28 @@ package proyectofinal;
 
 
 import interfaz.Informe;
+
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.ArrayList;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class Pasteleria extends Conexion{
 
-    Connection conn;
+    Connection cn;
+    
+    private PreparedStatement insertarRegistro;
+    final String mostrarVenta = "Select * from Informe";
     
     public Informe inform;
     
@@ -31,7 +35,7 @@ public class Pasteleria extends Conexion{
     private Date primera;
     private Date ultima;
     
-    final String mostrarCiudad = "Select * from Registro";
+    
     
         /*
         ArrayList<Date> fecha = new ArrayList<>();
@@ -48,12 +52,33 @@ public class Pasteleria extends Conexion{
                 +"'"+inicio+"' "+" and '" +"'"+ end+"'";
 */
 	public Pasteleria(){
-            
+        try {
+           cn= this.getConexion();
+            insertarRegistro = cn.prepareStatement("insert into Informe(fechaVenta, nombre, cantidad, precio, montoFinal) values(?, ?, ?, ?, ?)");
+         } catch (SQLException ex) {
+            Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
+        
+         public int registrarCiudad(String fechaVenta, String nombre, int cantidad, float precio, float montoFinal){
+            int result = 0;
+            try {
+                insertarRegistro.setString(1, fechaVenta);
+                insertarRegistro.setString(2, nombre);
+                insertarRegistro.setInt(3, cantidad);
+                insertarRegistro.setFloat(4, precio);
+                insertarRegistro.setFloat(5, montoFinal);
+                result = insertarRegistro.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
+              }
+                
+        return result;
+    }
 
-    	public void finalize() throws Throwable {
+    	/*public void finalize() throws Throwable {
 
-	}
+	}*/
         
         //Hice otra funcion para la fecha porque estaba muy largo todo
         public void obtenerFechas(){
@@ -78,8 +103,9 @@ public class Pasteleria extends Conexion{
 	public void generarInformeVenta(){
             Connection cn = this.getConexion();
         try {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(mostrarCiudad);
+            
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrarVenta);
             
             ResultSetMetaData metaData = rs.getMetaData();
             int numDeColumna = metaData.getColumnCount();
