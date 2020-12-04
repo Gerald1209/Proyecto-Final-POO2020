@@ -1,5 +1,8 @@
 package interfaz;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import proyectofinal.Pasteleria;
 
@@ -7,11 +10,12 @@ public class Kelani extends javax.swing.JFrame {
     
     Informe inform = new Informe();
     Pasteleria past = new Pasteleria();
-    Venta venta = new Venta();
+    VentaInt venta = new VentaInt();
     Acerca info = new Acerca();
     
 
-    public Kelani() {
+    public Kelani() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException
+    {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //dpPanel.setMaximumSize(maximumSize);
         initComponents();
@@ -139,7 +143,8 @@ public class Kelani extends javax.swing.JFrame {
     
     
     
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -164,9 +169,21 @@ public class Kelani extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Kelani().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
+                try {
+                    new Kelani().setVisible(true);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Kelani.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Kelani.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Kelani.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Kelani.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

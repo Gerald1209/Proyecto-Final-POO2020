@@ -51,7 +51,8 @@ public class Pasteleria extends Conexion{
         final String mostrarMonto = "Select montoFinal from Registro where Proyecto_Final.fechaVenta between "
                 +"'"+inicio+"' "+" and '" +"'"+ end+"'";
 */
-	public Pasteleria(){
+	public Pasteleria()throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException
+        {
         try {
            cn= this.getConexion();
             insertarRegistro = cn.prepareStatement("insert into Informe(fechaVenta, nombre, cantidad, precio, montoFinal) values(?, ?, ?, ?, ?)");
@@ -60,10 +61,10 @@ public class Pasteleria extends Conexion{
             }
 	}
         
-         public int registrarCiudad(String fechaVenta, String nombre, int cantidad, float precio, float montoFinal){
+         public int registrarCiudad(Date fechaVenta, String nombre, int cantidad, float precio, float montoFinal){
             int result = 0;
             try {
-                insertarRegistro.setString(1, fechaVenta);
+                insertarRegistro.setDate(1, (java.sql.Date) fechaVenta);
                 insertarRegistro.setString(2, nombre);
                 insertarRegistro.setInt(3, cantidad);
                 insertarRegistro.setFloat(4, precio);

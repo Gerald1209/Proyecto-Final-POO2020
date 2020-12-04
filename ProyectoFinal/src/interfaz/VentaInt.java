@@ -5,18 +5,23 @@
  */
 package interfaz;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import proyectofinal.Venta;
+import proyectofinal.Pasteleria;
 
 /**
  *
  * @author Marlon Ramirez
  */
-public class Venta extends javax.swing.JInternalFrame {
+public class VentaInt extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Venta
      */
-    public Venta() {
+    public VentaInt() {
         initComponents();
     }
 
@@ -140,7 +145,29 @@ public class Venta extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIngresarActionPerformed
-        
+         Venta v = new Venta(
+                tfFecha.getText(),
+                cbProducto.getText(),
+                Integer.parseInt(tfCantidad.getText())
+        );
+        Pasteleria p;
+        try {
+            p = new Pasteleria();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(VentaInt.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(VentaInt.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(VentaInt.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(VentaInt.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        int result = p.registrarCiudad(v.getFechaVenta(), v.getNombre(), v.getCantidad(), v.getPrecio(), v.getMontoFinal());
+        if (result !=0){
+            JOptionPane.showMessageDialog(this, "Registro guardado");
+        }else{
+            JOptionPane.showMessageDialog(this, "Registro no guardado");
+        }
                                             
     }//GEN-LAST:event_bIngresarActionPerformed
 
