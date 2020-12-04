@@ -76,7 +76,7 @@ public class Pasteleria extends Conexion{
         }
 
 	public void generarInformeVenta(){
-            Connection conn = this.obtenerConexion();
+            Connection cn = this.getConexion();
         try {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(mostrarCiudad);
