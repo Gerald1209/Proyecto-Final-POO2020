@@ -19,6 +19,11 @@ public class Kelani extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //dpPanel.setMaximumSize(maximumSize);
         initComponents();
+        try {
+            past = new Pasteleria();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+            Logger.getLogger(Informe.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
@@ -131,8 +136,8 @@ public class Kelani extends javax.swing.JFrame {
         this.dpPanel.add(this.inform);
         this.inform.setVisible(true);        
         
-       this.past.obtenerFechas();
-        this.past.generarInformeVenta();
+        this.past.obtenerFechas();
+        this.past.generarInformeVenta(this.inform.gettInforme());
     }//GEN-LAST:event_mInformeMouseClicked
 
     private void mAcercaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mAcercaMouseClicked

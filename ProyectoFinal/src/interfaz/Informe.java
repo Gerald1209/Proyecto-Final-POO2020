@@ -1,14 +1,12 @@
 package interfaz;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JTextArea;
 
-
+import javax.swing.JTable;
+import proyectofinal.Pasteleria;
 
 public class Informe extends javax.swing.JInternalFrame {
 
+    Pasteleria past = null;
     /**
      * Creates new form Informe
      */
@@ -16,6 +14,7 @@ public class Informe extends javax.swing.JInternalFrame {
     
     public Informe() {
         initComponents();
+                
     }
 
         
@@ -23,65 +22,40 @@ public class Informe extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        spInforme = new javax.swing.JScrollPane();
+        tInforme = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 248, 239));
         setClosable(true);
         setMaximizable(true);
         setTitle("Informe");
 
-        jTable1.setBackground(new java.awt.Color(255, 248, 239));
-        jTable1.setFont(new java.awt.Font("Lucida Calligraphy", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tInforme.setBackground(new java.awt.Color(255, 248, 239));
+        tInforme.setFont(new java.awt.Font("Lucida Calligraphy", 0, 14)); // NOI18N
+        tInforme.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Fecha", "Producto", "Monto de Compra"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jScrollPane1.setViewportView(jTable1);
+        ));
+        tInforme.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tInforme.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tInforme.setRowMargin(3);
+        spInforme.setViewportView(tInforme);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+            .addComponent(spInforme)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 175, Short.MAX_VALUE))
+                .addComponent(spInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 289, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,17 +63,21 @@ public class Informe extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane spInforme;
+    private javax.swing.JTable tInforme;
     // End of variables declaration//GEN-END:variables
 
-   
-    private class past {
-
-        
-
-        public past() {
-        }
+    public JTable gettInforme() {
+        return tInforme;
     }
+
+    public void settInforme(JTable tInforme) {
+        this.tInforme = tInforme;
+    }
+
+    
+
+   
+    
  
 }

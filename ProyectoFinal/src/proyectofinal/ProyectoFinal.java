@@ -10,8 +10,6 @@ public class ProyectoFinal {
         Kelani kelani = new Kelani();
         kelani.setVisible(true);
         
-        Pasteleria p = new Pasteleria();
-        p.generarInformeVenta();
     }
     
 }

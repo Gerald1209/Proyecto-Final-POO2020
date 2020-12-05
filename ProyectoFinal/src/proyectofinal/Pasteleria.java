@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Pasteleria extends Conexion{
 
@@ -25,7 +27,7 @@ public class Pasteleria extends Conexion{
     private PreparedStatement insertarRegistro;
     final String mostrarVenta = "Select * from Informe";
     
-    public Informe inform;
+    Informe inform;
     
     public Venta m_Venta;
     
@@ -37,22 +39,11 @@ public class Pasteleria extends Conexion{
     
     
     
-        /*
-        ArrayList<Date> fecha = new ArrayList<>();
-        ArrayList<String> nombres = new ArrayList<>();
-        ArrayList<Float> monto = new ArrayList<>();
-             
-        final String mostrarFecha = "Select fechaVenta from Registro where fechaVenta between "
-                +"'"+inicio+"' "+" and '" +"'"+ end+"'";
         
-        final String mostrarNombre = "Select nombre from Registro where Proyecto_Final.fechaVenta between "
-                +"'"+inicio+"' "+" and '" +"'"+ end+"'";
-        
-        final String mostrarMonto = "Select montoFinal from Registro where Proyecto_Final.fechaVenta between "
-                +"'"+inicio+"' "+" and '" +"'"+ end+"'";
-*/
 	public Pasteleria()throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException
         {
+            
+            
         try {
            cn= this.getConexion();
             insertarRegistro = cn.prepareStatement("insert into Informe(fechaVenta, nombre, cantidad, precio, montoFinal) values(?, ?, ?, ?, ?)");
@@ -60,6 +51,7 @@ public class Pasteleria extends Conexion{
             Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
             }
 	}
+
         
          public int registrarVenta(Date fechaVenta, String nombre, int cantidad, float precio, float montoFinal){
             int result = 0;
@@ -102,37 +94,41 @@ public class Pasteleria extends Conexion{
         
         }
 
-	public void generarInformeVenta(){
+	public void generarInformeVenta(javax.swing.JTable inf){
             
             Connection cn = this.getConexion();
+            final String mostrarInforme = "Select fechaVenta, nombre, cantidad, montoFinal from Informe where fechaVenta >= '"
+                +inicio+"' and fechaVenta <= '" + end+"'";
+            
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Fecha de Venta");
+            modelo.addColumn("Producto");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Monto Final");
+            
+            inf.setModel(modelo);
+            
+            String [] datos = new String [4];
+            
+            
         try {
-            
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(mostrarVenta);
+            ResultSet rs = st.executeQuery(mostrarInforme);
             
-            ResultSetMetaData metaData = rs.getMetaData();
-            int numDeColumna = metaData.getColumnCount();
             
-            System.out.println("Registro");
-            for(int i =1; i <= numDeColumna; i++){
-                 System.out.printf("%-8s\t", metaData.getColumnName(i));
-                
+            while(rs.next()){
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                modelo.addRow(datos);
             }
             
-            System.out.println("");
-            while (rs.next()){
-                for(int i= 1; i<= numDeColumna; i++){
-                    
-                    System.out.printf("%-8s \t", rs.getObject(i));
-                    
-                }
-               System.out.println("");
-            }
-        } 
-        catch (SQLException ex) {
+            inf.setModel(modelo);
+            
+        } catch (SQLException ex) {
             Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 	
 }

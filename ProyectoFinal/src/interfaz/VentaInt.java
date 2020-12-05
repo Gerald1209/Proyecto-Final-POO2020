@@ -6,7 +6,7 @@
 package interfaz;
 
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,9 +19,8 @@ import proyectofinal.Pasteleria;
  */
 public class VentaInt extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Venta
-     */
+    Informe inform;
+    
     public VentaInt() {
         initComponents();
     }
@@ -35,13 +34,6 @@ public class VentaInt extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jScrollBar1 = new javax.swing.JScrollBar();
-        jSpinner1 = new javax.swing.JSpinner();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jProgressBar2 = new javax.swing.JProgressBar();
         lProducto = new javax.swing.JLabel();
         lFecha1 = new javax.swing.JLabel();
         lCantidad = new javax.swing.JLabel();
@@ -49,15 +41,6 @@ public class VentaInt extends javax.swing.JInternalFrame {
         bIngresar = new javax.swing.JButton();
         cbProducto = new javax.swing.JComboBox<>();
         tfFecha = new javax.swing.JTextField();
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setBackground(new java.awt.Color(255, 248, 239));
         setClosable(true);
@@ -90,6 +73,7 @@ public class VentaInt extends javax.swing.JInternalFrame {
         tfFecha.setForeground(new java.awt.Color(102, 102, 102));
         tfFecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfFecha.setText("Año - Mes - Dia");
+        tfFecha.setPreferredSize(new java.awt.Dimension(6, 20));
         tfFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfFechaActionPerformed(evt);
@@ -103,19 +87,14 @@ public class VentaInt extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lFecha1)
-                        .addGap(79, 79, 79))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lCantidad, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lProducto, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(62, 62, 62)))
-                .addGap(10, 10, 10)
+                    .addComponent(lFecha1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lCantidad)
+                    .addComponent(lProducto))
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(tfCantidad)
                     .addComponent(cbProducto, javax.swing.GroupLayout.Alignment.LEADING, 0, 232, Short.MAX_VALUE)
-                    .addComponent(tfFecha))
+                    .addComponent(tfFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31))
             .addGroup(layout.createSequentialGroup()
                 .addGap(139, 139, 139)
@@ -125,7 +104,7 @@ public class VentaInt extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,7 +142,7 @@ public class VentaInt extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(VentaInt.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int result = p.registrarVenta(v.getFechaVenta(), v.getNombre(), v.getCantidad(), v.getPrecio(), v.getMontoFinal());
+        int result = p.registrarVenta((Date) v.getFechaVenta(), v.getNombre(), v.getCantidad(), v.getPrecio(), v.getMontoFinal());
         if (result !=0){
             JOptionPane.showMessageDialog(this, "Registro guardado");
         }else{
@@ -180,13 +159,6 @@ public class VentaInt extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bIngresar;
     private javax.swing.JComboBox<String> cbProducto;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
-    private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lCantidad;
     private javax.swing.JLabel lFecha1;
     private javax.swing.JLabel lProducto;
