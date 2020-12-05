@@ -1,6 +1,7 @@
 package interfaz;
 
 
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import proyectofinal.Pasteleria;
 
@@ -24,6 +25,8 @@ public class Informe extends javax.swing.JInternalFrame {
 
         spInforme = new javax.swing.JScrollPane();
         tInforme = new javax.swing.JTable();
+        lTotal = new javax.swing.JLabel();
+        lCantidad = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 248, 239));
         setClosable(true);
@@ -45,17 +48,32 @@ public class Informe extends javax.swing.JInternalFrame {
         tInforme.setRowMargin(3);
         spInforme.setViewportView(tInforme);
 
+        lTotal.setFont(new java.awt.Font("Lucida Calligraphy", 0, 16)); // NOI18N
+        lTotal.setText("Total");
+
+        lCantidad.setFont(new java.awt.Font("Lucida Calligraphy", 0, 16)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(spInforme)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(spInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 289, Short.MAX_VALUE))
+                .addComponent(spInforme, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -63,6 +81,8 @@ public class Informe extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lCantidad;
+    private javax.swing.JLabel lTotal;
     private javax.swing.JScrollPane spInforme;
     private javax.swing.JTable tInforme;
     // End of variables declaration//GEN-END:variables
@@ -74,6 +94,12 @@ public class Informe extends javax.swing.JInternalFrame {
     public void settInforme(JTable tInforme) {
         this.tInforme = tInforme;
     }
+
+    public JLabel getlCantidad() {
+        return lCantidad;
+    }
+
+    
 
     
 

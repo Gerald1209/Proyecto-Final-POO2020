@@ -126,9 +126,30 @@ public class Pasteleria extends Conexion{
             
             inf.setModel(modelo);
             
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) {
             Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
         }
+ 
+        
     }
-	
+        
+        public float total(){
+            final String mostrarTotal = "Select SUM(montoFinal) Total from Informe where fechaVenta >= '"+ inicio +"' and fechaVenta  <= '"+end+"'";
+            //float [] total = new float [2];
+            float total;
+            
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrarTotal);
+            total  = rs.getFloat(1);
+            
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total;
+        }
+        
+        
 }

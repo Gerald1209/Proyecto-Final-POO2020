@@ -138,6 +138,8 @@ public class Kelani extends javax.swing.JFrame {
         
         this.past.obtenerFechas();
         this.past.generarInformeVenta(this.inform.gettInforme());
+        String s = Float.toString(this.past.total());
+        this.inform.getlCantidad().setText(s);
     }//GEN-LAST:event_mInformeMouseClicked
 
     private void mAcercaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mAcercaMouseClicked
