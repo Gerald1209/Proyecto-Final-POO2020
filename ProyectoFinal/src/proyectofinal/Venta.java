@@ -1,5 +1,8 @@
 package proyectofinal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 
 
@@ -20,13 +23,40 @@ public class Venta {
 	public Venta(){
 
 	}
+        
+        public Venta(String fechaVenta, String nombre, int cantidad) {
+            try {
+                SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
+                this.fechaVenta = fechas.parse(fechaVenta);
+                
+            } 
+            catch (ParseException ex) 
+            {
+            JOptionPane.showMessageDialog(null, "Formato Incorrecto","Error" , JOptionPane.ERROR_MESSAGE);
+            }
+            
+            this.nombre = nombre;
+            this.cantidad = cantidad;
+            
+            //calcularMontoFinal();
+    }
+
+   /* public Venta(Date text, String toString, int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
 
 	public void finalize() throws Throwable {
 
 	}
 
-	public float calcularMontoFinal(){
-            return 0;
+	public void calcularMontoFinal(){
+            //this.montoFinal = this.cantidad * this.precio;
+		
+	}
+        
+       public void calcularPrecio(){
+           if(nombre.equalsIgnoreCase(""))
+                this.precio = ;
 		
 	}
 

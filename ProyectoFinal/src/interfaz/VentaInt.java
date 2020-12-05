@@ -6,6 +6,7 @@
 package interfaz;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -146,11 +147,11 @@ public class VentaInt extends javax.swing.JInternalFrame {
 
     private void bIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIngresarActionPerformed
          Venta v = new Venta(
-                tfFecha.getText(),
-                cbProducto.getText(),
+               tfFecha.getText(),
+                cbProducto.getSelectedItem().toString(),
                 Integer.parseInt(tfCantidad.getText())
         );
-        Pasteleria p;
+        Pasteleria p = null;
         try {
             p = new Pasteleria();
         } catch (ClassNotFoundException ex) {
