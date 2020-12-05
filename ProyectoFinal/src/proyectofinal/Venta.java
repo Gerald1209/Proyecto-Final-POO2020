@@ -74,7 +74,7 @@ public class Venta {
                                             break;  
                 case "Pastel de Chocolate": this.precio = 23;
                                             break;                            
-		case "Galleta de Chocolate Chips": this.precio = 2.5f;
+		case "Galleta Chocolate Chips": this.precio = 2.5f;
                                             break;
                 case "Galleta de Avena": this.precio = 1;
                                             break; 
