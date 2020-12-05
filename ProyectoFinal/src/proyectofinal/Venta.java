@@ -34,7 +34,7 @@ public class Venta {
             {
             JOptionPane.showMessageDialog(null, "Formato Incorrecto","Error" , JOptionPane.ERROR_MESSAGE);
             }
-            
+           
             this.nombre = nombre;
             this.cantidad = cantidad;
             
@@ -50,15 +50,47 @@ public class Venta {
 	}
 
 	public void calcularMontoFinal(){
-            //this.montoFinal = this.cantidad * this.precio;
+            this.montoFinal = this.cantidad * this.precio;
 		
 	}
         
        public void calcularPrecio(){
-           if(nombre.equalsIgnoreCase(""))
-                this.precio = ;
-		
-	}
+                    
+           switch(nombre){
+                case "Pastel de Zanahoría": this.precio = 25;
+                                            break;
+                case "Pastel de Fresas con Crema": this.precio = 25;
+                                            break;                            
+                case "Pastel de Red Velvet": this.precio = 25;
+                                            break;
+                case "Pastel de Moka": this.precio = 27;
+                                            break;  
+                case "Pastel de Chocolate": this.precio = 23;
+                                            break;                            
+		case "Galleta de Chocolate Chips": this.precio = 2.5f;
+                                            break;
+                case "Galleta de Avena": this.precio = 1;
+                                            break; 
+                case "Galleta de Red Velvet": this.precio = 2;
+                                            break;   
+                case "Pay de Limón": this.precio = 18;
+                                            break; 
+                case "Pay de Manzana": this.precio = 20;
+                                            break; 
+                case "Tartaleta de Frutas": this.precio = 18;
+                                            break;  
+                case "Brownie und.": this.precio = 1.5f;
+                                            break;
+                case "Torre de Brownies": this.precio = 14;
+                                            break;
+                case "Tres Leches": this.precio = 18;
+                                            break;
+                case "Chesecake Clasíco": this.precio = 22;
+                                            break; 
+                case "Chesecake Calala": this.precio = 26;
+                                            break;                             
+            }
+       }
 
     public int getCantidad() {
         return cantidad;

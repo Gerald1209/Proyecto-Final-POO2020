@@ -163,7 +163,7 @@ public class VentaInt extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(VentaInt.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int result = p.registrarCiudad(v.getFechaVenta(), v.getNombre(), v.getCantidad(), v.getPrecio(), v.getMontoFinal());
+        int result = p.registrarVenta(v.getFechaVenta(), v.getNombre(), v.getCantidad(), v.getPrecio(), v.getMontoFinal());
         if (result !=0){
             JOptionPane.showMessageDialog(this, "Registro guardado");
         }else{

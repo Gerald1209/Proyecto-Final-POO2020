@@ -61,14 +61,14 @@ public class Pasteleria extends Conexion{
             }
 	}
         
-         public int registrarCiudad(Date fechaVenta, String nombre, int cantidad, float precio, float montoFinal){
+         public int registrarVenta(Date fechaVenta, String nombre, int cantidad, float precio, float montoFinal){
             int result = 0;
             try {
-                insertarRegistro.setDate(1, (java.sql.Date) fechaVenta);
-                insertarRegistro.setString(2, nombre);
-                insertarRegistro.setInt(3, cantidad);
-                insertarRegistro.setFloat(4, precio);
-                insertarRegistro.setFloat(5, montoFinal);
+                insertarRegistro.setDate(2, (java.sql.Date) fechaVenta);
+                insertarRegistro.setString(3, nombre);
+                insertarRegistro.setInt(4, cantidad);
+                insertarRegistro.setFloat(5, precio);
+                insertarRegistro.setFloat(6, montoFinal);
                 result = insertarRegistro.executeUpdate();
             } catch (SQLException ex) {
                 Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
