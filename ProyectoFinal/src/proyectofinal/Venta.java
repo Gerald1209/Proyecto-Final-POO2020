@@ -27,9 +27,9 @@ public class Venta {
         public Venta(String fechaVenta, String nombre, int cantidad) {
             try {
                SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
-                //this.fechaVenta = fechas.parse(fechaVenta); 
-             java.sql.Date sqlDate = convert(fechas.parse(fechaVenta));   
                 
+             java.sql.Date sqlDate = convert(fechas.parse(fechaVenta));   
+             this.fechaVenta = sqlDate;   
             } 
             catch (ParseException ex) 
             {
@@ -39,7 +39,8 @@ public class Venta {
             this.nombre = nombre;
             this.cantidad = cantidad;
             
-            //calcularMontoFinal();
+            calcularPrecio();
+            calcularMontoFinal();
     }
 
    /* public Venta(Date text, String toString, int parseInt) {
