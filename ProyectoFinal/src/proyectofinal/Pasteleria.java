@@ -135,8 +135,8 @@ public class Pasteleria extends Conexion{
         }
         
         
-        /*
-        public float total(){
+        
+       /* public float total(){
             final String mostrarTotal = "Select SUM(montoFinal) Total from Informe where fechaVenta >= '"+ inicio +"' and fechaVenta  <= '"+end+"'";
             //float [] total = new float [2];
             float total = 0;
