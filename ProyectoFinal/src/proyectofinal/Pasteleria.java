@@ -7,17 +7,13 @@ import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Date;
-import java.util.ArrayList;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class Pasteleria extends Conexion{
@@ -37,7 +33,7 @@ public class Pasteleria extends Conexion{
     private Date primera;
     private Date ultima;
     
-    
+    private float total=0;
     
         
 	public Pasteleria()throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException
@@ -53,7 +49,7 @@ public class Pasteleria extends Conexion{
 	}
 
         
-         public int registrarVenta(Date fechaVenta, String nombre, int cantidad, float precio, float montoFinal){
+        public int registrarVenta(Date fechaVenta, String nombre, int cantidad, float precio, float montoFinal){
             int result = 0;
             try {
                 insertarRegistro.setDate(1, (java.sql.Date) fechaVenta);
@@ -69,9 +65,7 @@ public class Pasteleria extends Conexion{
         return result;
     }
 
-    	/*public void finalize() throws Throwable {
-
-	}*/
+    
         
         //Hice otra funcion para la fecha porque estaba muy largo todo
         public void obtenerFechas(){
@@ -122,8 +116,10 @@ public class Pasteleria extends Conexion{
                 datos[2] = rs.getString(3);
                 datos[3] = rs.getString(4);
                 modelo.addRow(datos);
+                
+                total += rs.getFloat(4);
             }
-            
+           
             inf.setModel(modelo);
             
         } 
@@ -133,11 +129,17 @@ public class Pasteleria extends Conexion{
  
         
     }
+ 
+        public float getTotal() {
+            return total;
+        }
         
+        
+        /*
         public float total(){
             final String mostrarTotal = "Select SUM(montoFinal) Total from Informe where fechaVenta >= '"+ inicio +"' and fechaVenta  <= '"+end+"'";
             //float [] total = new float [2];
-            float total;
+            float total = 0;
             
         try {
             Statement st = cn.createStatement();
@@ -149,7 +151,5 @@ public class Pasteleria extends Conexion{
             Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
         }
         return total;
-        }
-        
-        
+        }*/
 }
