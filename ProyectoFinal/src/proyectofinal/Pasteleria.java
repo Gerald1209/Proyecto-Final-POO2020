@@ -135,10 +135,4 @@ public class Pasteleria extends Conexion{
         
     }
 	
-
-	public void vender(){
-
-	}
-
-       
 }
