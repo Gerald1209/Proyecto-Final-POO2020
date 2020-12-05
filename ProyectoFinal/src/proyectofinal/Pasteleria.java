@@ -83,6 +83,7 @@ public class Pasteleria extends Conexion{
         
         //Hice otra funcion para la fecha porque estaba muy largo todo
         public void obtenerFechas(){
+            
             inicio =JOptionPane.showInputDialog(null, "Ingrese la Fecha Inicial"
                     + "\n  yyyy-MM-dd", JOptionPane.QUESTION_MESSAGE);
             end = JOptionPane.showInputDialog(null, "Ingrese la Fecha Final"
@@ -102,6 +103,7 @@ public class Pasteleria extends Conexion{
         }
 
 	public void generarInformeVenta(){
+            
             Connection cn = this.getConexion();
         try {
             
@@ -113,21 +115,24 @@ public class Pasteleria extends Conexion{
             
             System.out.println("Registro");
             for(int i =1; i <= numDeColumna; i++){
-                System.out.printf("%-8s\t", metaData.getColumnName(i));
+                 System.out.printf("%-8s\t", metaData.getColumnName(i));
                 
             }
+            
             System.out.println("");
             while (rs.next()){
                 for(int i= 1; i<= numDeColumna; i++){
+                    
                     System.out.printf("%-8s \t", rs.getObject(i));
                     
                 }
-                System.out.println("");
+               System.out.println("");
             }
         } 
         catch (SQLException ex) {
             Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 	
 

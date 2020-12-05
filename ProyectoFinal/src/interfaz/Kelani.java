@@ -131,7 +131,7 @@ public class Kelani extends javax.swing.JFrame {
         this.dpPanel.add(this.inform);
         this.inform.setVisible(true);        
         
-        this.past.obtenerFechas();
+       this.past.obtenerFechas();
         this.past.generarInformeVenta();
     }//GEN-LAST:event_mInformeMouseClicked
 

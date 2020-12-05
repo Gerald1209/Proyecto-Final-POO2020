@@ -26,8 +26,9 @@ public class Venta {
         
         public Venta(String fechaVenta, String nombre, int cantidad) {
             try {
-                SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
-                this.fechaVenta = fechas.parse(fechaVenta);
+               SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
+                //this.fechaVenta = fechas.parse(fechaVenta); 
+             java.sql.Date sqlDate = convert(fechas.parse(fechaVenta));   
                 
             } 
             catch (ParseException ex) 
@@ -44,6 +45,11 @@ public class Venta {
    /* public Venta(Date text, String toString, int parseInt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }*/
+        
+        private static java.sql.Date convert(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
 
 	public void finalize() throws Throwable {
 
