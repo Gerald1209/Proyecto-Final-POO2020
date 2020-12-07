@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 public class Pasteleria extends Conexion{
 
@@ -93,13 +94,15 @@ public class Pasteleria extends Conexion{
             
             Connection cn = this.getConexion();
             final String mostrarInforme = "Select fechaVenta, nombre, cantidad, montoFinal from Informe where fechaVenta >= '"
-                +inicio+"' and fechaVenta <= '" + end+"'";
-            
+                +inicio+"' and fechaVenta <= '" + end+"' order by fechaVenta ASC";
+                        
             DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("Fecha de Venta");
             modelo.addColumn("Producto");
             modelo.addColumn("Cantidad");
             modelo.addColumn("Monto Final");
+            
+            
             
             inf.setModel(modelo);
             
@@ -108,9 +111,8 @@ public class Pasteleria extends Conexion{
             
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(mostrarInforme);
+            ResultSet rs=st.executeQuery(mostrarInforme);
             
-            Date date;
             while(rs.next()){
                 int j=1;
                 for(int i= 0; i<4;i++){
@@ -122,6 +124,11 @@ public class Pasteleria extends Conexion{
             }
            
             inf.setModel(modelo);
+            TableColumnModel columnModel = inf.getColumnModel();
+            columnModel.getColumn(0).setPreferredWidth(100);
+            columnModel.getColumn(1).setPreferredWidth(250);
+            columnModel.getColumn(2).setPreferredWidth(70);
+            columnModel.getColumn(3).setPreferredWidth(70);
             
         } 
         catch (SQLException ex) {
@@ -133,6 +140,5 @@ public class Pasteleria extends Conexion{
  
         public float getTotal() {
             return total;
-        }
-       
+        }   
 }
