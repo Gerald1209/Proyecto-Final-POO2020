@@ -133,6 +133,7 @@ public class Kelani extends javax.swing.JFrame {
     }//GEN-LAST:event_mVentaMouseClicked
 
     private void mInformeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mInformeMouseClicked
+        this.inform.getlCantidad().setText("");
         this.dpPanel.add(this.inform);
         this.inform.setVisible(true);        
         
