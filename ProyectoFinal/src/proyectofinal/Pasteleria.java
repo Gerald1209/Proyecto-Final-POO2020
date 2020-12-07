@@ -69,7 +69,7 @@ public class Pasteleria extends Conexion{
     
         
         //Hice otra funcion para la fecha porque estaba muy largo todo
-        SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
+        
         public void obtenerFechas(){
             
             inicio =JOptionPane.showInputDialog(null, "Ingrese la Fecha Inicial"
@@ -78,7 +78,7 @@ public class Pasteleria extends Conexion{
                     + "\n  yyyy-MM-dd", JOptionPane.QUESTION_MESSAGE);
             
             try {
-                //SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
                 primera = fechas.parse(inicio);
                 ultima = fechas.parse(end);
             } 
