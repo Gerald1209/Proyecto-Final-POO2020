@@ -68,6 +68,7 @@ public class Pasteleria extends Conexion{
     
         
         //Hice otra funcion para la fecha porque estaba muy largo todo
+        SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
         public void obtenerFechas(){
             
             inicio =JOptionPane.showInputDialog(null, "Ingrese la Fecha Inicial"
@@ -76,7 +77,7 @@ public class Pasteleria extends Conexion{
                     + "\n  yyyy-MM-dd", JOptionPane.QUESTION_MESSAGE);
             
             try {
-                SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
+                //SimpleDateFormat fechas = new SimpleDateFormat("yyyy-MM-dd");
                 primera = fechas.parse(inicio);
                 ultima = fechas.parse(end);
             } 
@@ -109,14 +110,14 @@ public class Pasteleria extends Conexion{
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrarInforme);
             
-            
+            Date date;
             while(rs.next()){
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
+                int j=1;
+                for(int i= 0; i<4;i++){
+                    datos[i] = rs.getString(j);
+                    j++;
+                }
                 modelo.addRow(datos);
-                
                 total += rs.getFloat(4);
             }
            
@@ -133,23 +134,5 @@ public class Pasteleria extends Conexion{
         public float getTotal() {
             return total;
         }
-        
-        
-        
-       /* public float total(){
-            final String mostrarTotal = "Select SUM(montoFinal) Total from Informe where fechaVenta >= '"+ inicio +"' and fechaVenta  <= '"+end+"'";
-            //float [] total = new float [2];
-            float total = 0;
-            
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(mostrarTotal);
-            total  = rs.getFloat(1);
-            
-        } 
-        catch (SQLException ex) {
-            Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return total;
-        }*/
+       
 }
