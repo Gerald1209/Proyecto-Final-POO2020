@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import proyectofinal.Pasteleria;
 
 public class Kelani extends javax.swing.JFrame {
@@ -141,6 +142,7 @@ public class Kelani extends javax.swing.JFrame {
         this.past.generarInformeVenta(this.inform.gettInforme());
         String s = Float.toString(this.past.getTotal());
         this.inform.getlCantidad().setText(s);
+        this.inform.getlAdvertencia().setText("Recuerde cerrar el informe actual antes de solicitar el siguiente");
     }//GEN-LAST:event_mInformeMouseClicked
 
     private void mAcercaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mAcercaMouseClicked

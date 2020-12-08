@@ -22,7 +22,7 @@ public class Pasteleria extends Conexion{
     Connection cn;
     
     private PreparedStatement insertarRegistro;
-    final String mostrarVenta = "Select * from Informe";
+    //final String mostrarVenta = "Select * from Informe";
     
     Informe inform;
     
@@ -112,6 +112,11 @@ public class Pasteleria extends Conexion{
         try {
             Statement st = cn.createStatement();
             ResultSet rs=st.executeQuery(mostrarInforme);
+            
+            if(rs.next()==false){
+                JOptionPane.showMessageDialog(null, "No se encontraron registros", "Nulo", JOptionPane.ERROR_MESSAGE);
+                
+            }
             
             total = 0;
             while(rs.next()){
